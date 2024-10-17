@@ -15,6 +15,7 @@ namespace DataGridView.Forms
         public AddAndEditProductForm(Product oldProduct = null)
         {
             InitializeComponent();
+            InitializeComboBox();
 
             product = oldProduct ?? DataGenerator.CreateDefaultProduct();
 
@@ -25,36 +26,13 @@ namespace DataGridView.Forms
             numericUpDownMinimumQuantity.AddBinding(control => control.Value, product, product => product.MinimumQuantity, errorProvider1);
             numericUpDownPrice.AddBinding(control => control.Value, product, product => product.Price, errorProvider1);
 
-            foreach (var item in Enum.GetValues(typeof(Materials)))
-            {
-                comboBoxMaterials.Items.Add(item);
-            }
-            if (comboBoxMaterials.Items.Count > 0)
-            {
-                comboBoxMaterials.SelectedIndex = 0;
-            }
         }
 
         public Product Product => product;
 
-        private void comboBox1_DrawItem(object sender, DrawItemEventArgs e)
+        private void InitializeComboBox()
         {
-            if (e.Index > -1)
-            {
-                var value = (Materials)(sender as System.Windows.Forms.ComboBox).Items[e.Index];
-                e.Graphics.DrawString(GetDisplayValue(value),
-                    e.Font,
-                    new SolidBrush(e.ForeColor),
-                    e.Bounds.X + 20,
-                    e.Bounds.Y);
-            }
-        }
-
-        private string GetDisplayValue(Materials value)
-        {
-            var field = value.GetType().GetField(value.ToString());
-            var attributes = field.GetCustomAttributes<DescriptionAttribute>(false);
-            return attributes.FirstOrDefault()?.Description ?? "ХЗ";
+            comboBoxMaterials.DataSource = EnumHelper.GetEnumDescriptions(typeof(Materials));
         }
 
         private void buttonOk_Click(object sender, EventArgs e)

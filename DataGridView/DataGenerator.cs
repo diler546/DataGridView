@@ -19,7 +19,7 @@ namespace DataGridView
                 Id = Guid.NewGuid(),
                 Name = "",
                 Size = 1.0M,
-                Material = Materials.Copper.ToString(),
+                Material = EnumHelper.GetEnumDescription(Materials.Copper),
                 Quantity = 1,
                 MinimumQuantity = 1,
                 Price = 0

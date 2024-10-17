@@ -146,7 +146,6 @@
             this.comboBoxMaterials.Name = "comboBoxMaterials";
             this.comboBoxMaterials.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMaterials.TabIndex = 10;
-            this.comboBoxMaterials.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox1_DrawItem);
             // 
             // numericUpDownQuantity
             // 
