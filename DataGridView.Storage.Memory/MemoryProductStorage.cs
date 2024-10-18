@@ -1,9 +1,9 @@
-﻿using DataGridView.Contracts;
-using DataGridView.Contracts.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataGridView.Contracts;
+using DataGridView.Contracts.Models;
 
 namespace DataGridView.Storage.Memory
 {
@@ -12,6 +12,9 @@ namespace DataGridView.Storage.Memory
     {
         private List<Product> product;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="MemoryProductStorage"/>, создавая пустой список продуктов для хранения в памяти.
+        /// </summary>
         public MemoryProductStorage()
         {
             product = new List<Product>();

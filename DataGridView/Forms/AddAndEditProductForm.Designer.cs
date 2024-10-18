@@ -141,11 +141,14 @@
             // 
             // comboBoxMaterials
             // 
+            this.comboBoxMaterials.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxMaterials.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMaterials.FormattingEnabled = true;
             this.comboBoxMaterials.Location = new System.Drawing.Point(202, 75);
             this.comboBoxMaterials.Name = "comboBoxMaterials";
             this.comboBoxMaterials.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMaterials.TabIndex = 10;
+            this.comboBoxMaterials.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBoxMaterials_DrawItem);
             // 
             // numericUpDownQuantity
             // 
@@ -175,6 +178,7 @@
             // AddAndEditProductForm
             // 
             this.AcceptButton = this.buttonOk;
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
@@ -195,7 +199,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddAndEditProductForm";
-            this.Text = "Продукты";
+            this.Text = "Продукт";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMinimumQuantity)).EndInit();

@@ -11,8 +11,18 @@ namespace DataGridView
     public static class Extensions
     {
         /// <summary>
-        /// Создание Binding к Control
+        /// Добавляет привязку данных (`Binding`) между свойством контрола и свойством объекта модели.
+        /// Автоматически отслеживает изменения данных в модели и обновляет контрол.
+        /// Также, если передан `ErrorProvider`, добавляет валидацию модели с использованием атрибутов данных
+        /// (например, `Required`, `Range`, и т.д.) и отображает ошибки валидации на контроле.
         /// </summary>
+        /// <typeparam name="TControl">Тип контрола (например, `TextBox`, `NumericUpDown`, и т.д.).</typeparam>
+        /// <typeparam name="TSource">Тип модели данных, к которой привязывается контрол.</typeparam>
+        /// <param name="target">Контрол, к которому привязывается свойство модели.</param>
+        /// <param name="targetProperty">Выражение для указания свойства контрола, которое будет привязано.</param>
+        /// <param name="source">Модель данных, содержащая привязываемое свойство.</param>
+        /// <param name="sourceProperty">Выражение для указания свойства модели, которое будет привязано.</param>
+        /// <param name="errorProvider">Объект `ErrorProvider` для отображения ошибок валидации на контроле (опционально).</param>
         public static void AddBinding<TControl, TSource>(this TControl target,
             Expression<Func<TControl, object>> targetProperty,
             TSource source,

@@ -1,9 +1,5 @@
-﻿using DataGridView.Contracts.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using DataGridView.Contracts.Models;
 
 namespace DataGridView
 {
@@ -19,7 +15,7 @@ namespace DataGridView
                 Id = Guid.NewGuid(),
                 Name = "",
                 Size = 1.0M,
-                Material = EnumHelper.GetEnumDescription(Materials.Copper),
+                Material = Materials.Copper.ToString(),
                 Quantity = 1,
                 MinimumQuantity = 1,
                 Price = 0

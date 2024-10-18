@@ -1,17 +1,22 @@
-﻿using DataGridView.Contracts;
-using DataGridView.Contracts.Models;
-using DataGridView.Forms;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataGridView.Contracts;
+using DataGridView.Contracts.Models;
+using DataGridView.Forms;
 
 namespace DataGridView
 {
+    /// <summary>
+    /// Главная форма приложения для управления товарами.
+    /// </summary>
     public partial class MainForm : Form
     {
         private IProductManager productManager;
         private readonly BindingSource bindingSource;
-
+        /// <summary>
+        /// Инициализирует новый экземпляр MainForm с заданным менеджером продуктов
+        /// </summary>
         public MainForm(IProductManager manager)
         {
             InitializeComponent();
@@ -33,14 +38,14 @@ namespace DataGridView
             }
         }
 
-        private async void ToolStripButtonClose_Click(object sender, EventArgs e)
+        private async void ToolStripButtonDelete_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
                 var oldProduct = (Product)dataGridView1.CurrentRow.DataBoundItem;
 
                 if (MessageBox.Show(
-                    $"Точно удалить товар \"{oldProduct.Name}\"?",
+                    $"Вы точно хотите удалить товар \"{oldProduct.Name}\"?",
                     "Внимание",
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Warning
@@ -105,6 +110,16 @@ namespace DataGridView
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ShowHelp(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                    "Приложение для просмотра, добавление, изменение и удаление товаров на складе",
+                    "Справка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                    );
         }
     }
 }
