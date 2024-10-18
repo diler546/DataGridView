@@ -1,10 +1,10 @@
-﻿using DataGridView.Contracts;
-using DataGridView.Contracts.Models;
-using DataGridView.ProductManager.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataGridView.Contracts;
+using DataGridView.Contracts.Models;
+using DataGridView.ProductManager.Models;
 
 namespace DataGridView.ProductManager
 {
@@ -13,6 +13,10 @@ namespace DataGridView.ProductManager
     {
         private IProductStorage productStorage;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="ProductsManager"/> с указанным хранилищем продуктов.
+        /// </summary>
+        /// <param name="productStorage">Объект, реализующий интерфейс <see cref="IProductStorage"/>, используемый для управления продуктами.</param>
         public ProductsManager(IProductStorage productStorage)
         {
             this.productStorage = productStorage;
