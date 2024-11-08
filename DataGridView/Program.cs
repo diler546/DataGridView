@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using DataGridView.ProductManager;
 using DataGridView.Storage.Memory;
+using Microsoft.Extensions.Logging;
 
 namespace DataGridView
 {
@@ -15,8 +16,12 @@ namespace DataGridView
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var factory = LoggerFactory.Create(builder => builder.AddDebug());
+            var logger = factory.CreateLogger(nameof(DataGrid));
+
             var storage = new MemoryProductStorage();
-            var manager = new ProductsManager(storage);
+            var manager = new ProductsManager(storage, logger);
             Application.Run(new MainForm(manager));
         }
     }
