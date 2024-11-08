@@ -8,9 +8,9 @@ namespace DataGridView
         /// <summary>
         /// Создание нового экземпляр <see cref="Product"/>
         /// </summary>
-        public static Product CreateDefaultProduct(Action<Product> addInfo = null)
+        public static Validate CreateDefaultProduct(Action<Validate> addInfo = null)
         {
-            var newNail = new Product
+            var newNail = new Validate
             {
                 Id = Guid.NewGuid(),
                 Name = "",

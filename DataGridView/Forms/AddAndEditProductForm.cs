@@ -13,12 +13,12 @@ namespace DataGridView.Forms
     /// </summary>
     public partial class AddAndEditProductForm : Form
     {
-        private Product product;
+        private Validate product;
         /// <summary>
         /// Конструктор класса
         /// </summary>
         /// <param name="oldProduct">Продукт</param>
-        public AddAndEditProductForm(Product oldProduct = null)
+        public AddAndEditProductForm(Validate oldProduct = null)
         {
             InitializeComponent();
 
@@ -42,7 +42,7 @@ namespace DataGridView.Forms
 
         }
 
-        public Product Product => product;
+        public Validate Product => product;
 
         private void comboBoxMaterials_DrawItem(object sender, DrawItemEventArgs e)
         {

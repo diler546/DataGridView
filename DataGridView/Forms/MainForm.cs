@@ -32,7 +32,7 @@ namespace DataGridView
             var editForm = new AddAndEditProductForm();
             if (editForm.ShowDialog() == DialogResult.OK)
             {
-                await productManager.AddAsync(editForm.Product);
+                await productManager.AddAsync(Converts.ToProduct(editForm.Product));
                 bindingSource.ResetBindings(false);
                 await UpdateStatusStrip();
             }
@@ -64,7 +64,7 @@ namespace DataGridView
             {
                 var oldProduct = (Product)dataGridView1.CurrentRow.DataBoundItem;
 
-                var editForm = new AddAndEditProductForm(oldProduct);
+                var editForm = new AddAndEditProductForm(Converts.ToValidatableProduct(oldProduct));
 
                 if (MessageBox.Show(
                     $"Изменить товар \"{oldProduct.Name}\"?",
@@ -75,7 +75,7 @@ namespace DataGridView
                 {
                     if (editForm.ShowDialog() == DialogResult.OK)
                     {
-                        await productManager.EditAsync(editForm.Product);
+                        await productManager.EditAsync(Converts.ToProduct(editForm.Product));
                         bindingSource.ResetBindings(false);
                         await UpdateStatusStrip();
                     }
