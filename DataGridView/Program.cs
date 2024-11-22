@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using DataGridView.ProductManager;
 using DataGridView.Storage.Memory;
 using Microsoft.Extensions.Logging;
+using Serilog.Extensions.Logging;
+using Serilog;
 
 namespace DataGridView
 {
@@ -17,8 +19,13 @@ namespace DataGridView
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var factory = LoggerFactory.Create(builder => builder.AddDebug());
-            var logger = factory.CreateLogger(nameof(DataGrid));
+            var serilogLogger = new LoggerConfiguration()
+                .MinimumLevel.Verbose()
+                .WriteTo.Seq("http://localhost:5341", apiKey: "y7yJHv4SMo1xIrNwP68O")
+                .CreateLogger();
+
+            var logger = new SerilogLoggerFactory(serilogLogger)
+                .CreateLogger("DGV");
 
             var storage = new MemoryProductStorage();
             var manager = new ProductsManager(storage, logger);
