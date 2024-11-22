@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using DataGridView.Contracts;
 using DataGridView.Contracts.Models;
@@ -66,7 +65,7 @@ namespace DataGridView.ProductManager.Tests
                 It.IsAny<EventId>(),
                 It.IsAny<It.IsAnyType>(),
                 null,
-                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Exactly(2));
+                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Exactly(1));
         }
 
         /// <summary>
@@ -92,7 +91,7 @@ namespace DataGridView.ProductManager.Tests
                 It.IsAny<EventId>(),
                 It.IsAny<It.IsAnyType>(),
                 null,
-                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Exactly(2));
+                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Exactly(1));
         }
 
         /// <summary>
@@ -119,7 +118,7 @@ namespace DataGridView.ProductManager.Tests
                 It.IsAny<EventId>(),
                 It.IsAny<It.IsAnyType>(),
                 null,
-                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Exactly(2));
+                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Exactly(1));
         }
 
         /// <summary>
@@ -182,7 +181,7 @@ namespace DataGridView.ProductManager.Tests
                 It.IsAny<EventId>(),
                 It.IsAny<It.IsAnyType>(),
                 null,
-                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Once);
+                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Exactly(0));
         }
 
         /// <summary>
@@ -215,7 +214,7 @@ namespace DataGridView.ProductManager.Tests
                 It.IsAny<EventId>(),
                 It.IsAny<It.IsAnyType>(),
                 null,
-                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Once);
+                It.IsAny<Func<It.IsAnyType, Exception, string>>()), Times.Exactly(0));
         }
     }
 }
