@@ -8,13 +8,6 @@ namespace DataGridView.ProductManager
     /// </summary>
     static internal class LoggingHelper
     {
-        private const string InfoLoggerTemplateAvto =
-           "Сделано {0} для товара с идентификатором {1} и именем \"{2}\", прошло время: {3} мс; дата: {4}";
-        private const string ErrorLoggerTemplateAvto =
-            "Не удалось заполнить {0} для товара с идентификатором {1} и именем \"{2}\", прошло время: {3} мс; дата: {4}; сообщение об ошибке: {5}";
-        private const string ErrorLoggerTemplateCommon =
-            "Не удалось завершить {0}, дата: {1}; сообщение об ошибке: {2}";
-
         /// <summary>
         /// Логирует ошибку, произошедшую при выполнении операции с продуктом.
         /// </summary>
@@ -27,15 +20,14 @@ namespace DataGridView.ProductManager
         public static void LogErrorProduct(ILogger logger, string actionName, Guid applicantId, long msElapsed, string errorMessage, string applicantName = null)
         {
             logger.LogError(
-                string.Format(
-                            ErrorLoggerTemplateAvto,
+                            "Не удалось заполнить {ACTION} для товара с идентификатором {ID} и именем \"{@Product}\", " +
+                            "прошло время: {ELAPSEDMS} мс; дата: {DATA}; сообщение об ошибке: {ERROR}",
                             actionName,
                             applicantId,
                             applicantName ?? "unknown",
                             msElapsed,
                             DateTime.Now,
                             errorMessage
-                            )
                 );
         }
 
@@ -50,14 +42,13 @@ namespace DataGridView.ProductManager
         public static void LogInfoProduct(ILogger logger, string actionName, Guid applicantId, long msElapsed, string applicantName = null)
         {
             logger.LogInformation(
-                string.Format(
-                              InfoLoggerTemplateAvto,
+                              "Сделано {ACTION} для товара с идентификатором {ID} и именем \"{@Product}\", " +
+                              "прошло время: {ELAPSEDMS} мс; дата: {DATA}",
                               actionName,
                               applicantId,
                               applicantName ?? "unknown",
                               msElapsed,
                               DateTime.Now
-                              )
                 );
         }
 
@@ -69,12 +60,11 @@ namespace DataGridView.ProductManager
         /// <param name="errorMessage">Сообщение с описанием ошибки.</param>
         public static void LogError(ILogger logger, string actionName, string errorMessage)
         {
-            logger.LogError(string.Format(
-                                          ErrorLoggerTemplateCommon,
-                                          actionName,
-                                          DateTime.Now,
-                                          errorMessage
-                                          )
+            logger.LogError(
+                               "Не удалось завершить {ACTION}, дата: {DATA}; сообщение об ошибке: {ERROR}",
+                               actionName,
+                               DateTime.Now,
+                               errorMessage
                 );
         }
     }
