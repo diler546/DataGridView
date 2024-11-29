@@ -170,11 +170,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataGridView.Contracts\DataGridView.Contracts.csproj">
-      <Project>{6A7D09FE-E6D4-41B5-8137-670BDD3D935F}</Project>
+      <Project>{6a7d09fe-e6d4-41b5-8137-670bdd3d935f}</Project>
       <Name>DataGridView.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataGridView.Database\DataGridView.Database.csproj">
+      <Project>{b307de36-b6f4-4045-8dd9-3611b0cc4707}</Project>
+      <Name>DataGridView.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataGridView.ProductManager\DataGridView.ProductManager.csproj">
-      <Project>{D6F6601F-9868-4BC3-8C19-B1B11EC2079B}</Project>
+      <Project>{d6f6601f-9868-4bc3-8c19-b1b11ec2079b}</Project>
       <Name>DataGridView.ProductManager</Name>
     </ProjectReference>
   </ItemGroup>
