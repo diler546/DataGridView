@@ -5,6 +5,7 @@ using DataGridView.Storage.Memory;
 using Microsoft.Extensions.Logging;
 using Serilog.Extensions.Logging;
 using Serilog;
+using DataGridView.Database;
 
 namespace DataGridView
 {
@@ -27,7 +28,7 @@ namespace DataGridView
             var logger = new SerilogLoggerFactory(serilogLogger)
                 .CreateLogger("DGV");
 
-            var storage = new MemoryProductStorage();
+            var storage = new ProductStorage();
             var manager = new ProductsManager(storage, logger);
             Application.Run(new MainForm(manager));
         }
