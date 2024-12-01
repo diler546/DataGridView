@@ -8,13 +8,13 @@ namespace DataGridView.Database
         /// <summary>
         /// Конструктор контекста базы данных
         /// </summary>
-        public DataGridViewDbContext() : base("DataGridConnectionString")
+        public DataGridViewDbContext() : base("Server=DESKTOP-1DID0GG;Database=DataGridView;Trusted_Connection=True;")
         {
         }
 
         /// <summary>
-        /// Таблица <see cref="Product"/> в базе данных
+        /// Таблица <see cref="Contracts.Models.Product"/> в базе данных
         /// </summary>
-        public DbSet<Product> Product { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }

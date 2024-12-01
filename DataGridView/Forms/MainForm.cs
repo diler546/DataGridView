@@ -27,6 +27,12 @@ namespace DataGridView
             dataGridView1.DataSource = bindingSource;
         }
 
+        private async Task LoadProducts()
+        {
+            bindingSource.DataSource = await productManager.GetAllAsync();
+            bindingSource.ResetBindings(false);
+        }
+
         private async void ToolStripButtonAdd_Click(object sender, EventArgs e)
         {
             var editForm = new AddAndEditProductForm();
@@ -34,7 +40,7 @@ namespace DataGridView
             {
                 await productManager.AddAsync(Converts.ToProduct(editForm.Product));
                 bindingSource.ResetBindings(false);
-                await UpdateStatusStrip();
+                await Task.WhenAny(LoadProducts(), UpdateStatusStrip());
             }
         }
 
@@ -53,7 +59,7 @@ namespace DataGridView
                 {
                     await productManager.DeleteAsync(oldProduct.Id);
                     bindingSource.ResetBindings(false);
-                    await UpdateStatusStrip();
+                    await Task.WhenAny(LoadProducts(), UpdateStatusStrip());
                 }
             }
         }
@@ -77,7 +83,7 @@ namespace DataGridView
                     {
                         await productManager.EditAsync(Converts.ToProduct(editForm.Product));
                         bindingSource.ResetBindings(false);
-                        await UpdateStatusStrip();
+                        await Task.WhenAny(LoadProducts(), UpdateStatusStrip());
                     }
                 }
             }

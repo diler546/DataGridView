@@ -14,7 +14,7 @@ namespace DataGridView.Database
         {
             using (var context = new DataGridViewDbContext())
             {
-                context.Product.Add(product);
+                context.Products.Add(product);
                 await context.SaveChangesAsync();
                 return product;
             }
@@ -24,13 +24,13 @@ namespace DataGridView.Database
         {
             using (var context = new DataGridViewDbContext())
             {
-                var products = await context.Product.FirstOrDefaultAsync(p => p.Id == id);
+                var products = await context.Products.FirstOrDefaultAsync(p => p.Id == id);
                 if (products == null)
                 {
                     return false;
                 }
 
-                context.Product.Remove(products);
+                context.Products.Remove(products);
                 await context.SaveChangesAsync();
                 return true;
             }
@@ -40,7 +40,7 @@ namespace DataGridView.Database
         {
             using (var context = new DataGridViewDbContext())
             {
-                var product = await context.Product.FirstOrDefaultAsync(p => p.Id == newProduct.Id);
+                var product = await context.Products.FirstOrDefaultAsync(p => p.Id == newProduct.Id);
                 if (product == null)
                 {
                     return;
@@ -60,7 +60,7 @@ namespace DataGridView.Database
         {
             using (var context = new DataGridViewDbContext())
             {
-                var products = await context.Product
+                var products = await context.Products
                 .AsNoTracking()
                 .ToListAsync();
 
