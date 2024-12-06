@@ -14,13 +14,13 @@ namespace DataGridView.ProductManager
     public class ProductsManager : IProductManager
     {
         private IProductStorage productStorage;
-        private readonly ILogger logger;
+        private readonly ILogger<IProductManager> logger;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="ProductsManager"/> с указанным хранилищем продуктов.
         /// </summary>
         /// <param name="productStorage">Объект, реализующий интерфейс <see cref="IProductStorage"/>, используемый для управления продуктами.</param>
-        public ProductsManager(IProductStorage productStorage, ILogger logger)
+        public ProductsManager(IProductStorage productStorage, ILogger<IProductManager> logger)
         {
             this.productStorage = productStorage;
             this.logger = logger;

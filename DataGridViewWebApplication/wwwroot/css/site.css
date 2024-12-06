@@ -1,0 +1,121 @@
+/* Базовые настройки */
+html {
+    font-size: 14px;
+    background-color: #121212; /* Темный фон */
+    color: #e0e0e0; /* Светлый текст */
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #121212; /* Тёмный фон */
+    color: #e0e0e0; /* Светлый текст */
+    font-family: Arial, sans-serif;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 8px 16px; /* Сделал кнопки меньше */
+    font-size: 0.875rem; /* Уменьшенный текст */
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 20px; /* Округлённые края */
+    background: linear-gradient(45deg, #258cfb, #1a73e8); /* Градиент для кнопок */
+    color: #ffffff; /* Белый текст */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .btn:hover {
+        background: linear-gradient(45deg, #1a73e8, #258cfb); /* Градиент при наведении */
+        transform: translateY(-2px); /* Небольшое "всплытие" */
+    }
+
+    .btn:focus,
+    .btn:active:focus {
+        box-shadow: 0 0 0 0.2rem rgba(37, 140, 251, 0.5);
+        outline: none;
+    }
+
+/* Кнопки-ссылки */
+.btn-link.nav-link {
+    color: #258cfb;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+    .btn-link.nav-link:hover {
+        color: #1a73e8;
+        border-color: #1a73e8;
+    }
+
+    .btn-link.nav-link:focus {
+        box-shadow: none;
+    }
+
+/* Поля ввода */
+.form-control {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+    .form-control:focus {
+        background-color: #2a2a2a;
+        border-color: #258cfb;
+        box-shadow: 0 0 5px rgba(37, 140, 251, 0.5);
+        outline: none;
+    }
+
+/* Чекбоксы */
+.form-check-input {
+    accent-color: #258cfb; /* Цвет галочки */
+    border-radius: 4px;
+}
+
+    .form-check-input:focus {
+        box-shadow: 0 0 0 0.2rem rgba(37, 140, 251, 0.5);
+    }
+
+/* Ссылки */
+a {
+    color: #258cfb;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #1a73e8;
+        text-decoration: underline;
+    }
+
+/* Дополнительные элементы */
+footer {
+    background-color: #1e1e1e;
+    color: #888888;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #2a2a2a;
+}
+
+header {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    padding: 20px;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
