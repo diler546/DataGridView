@@ -11,6 +11,78 @@ html {
     }
 }
 
+/* Таблица */
+.table1 {
+    width: 100%;
+    border-collapse: collapse;
+    color: #e0e0e0;
+    background-color: #1e1e1e; /* Тёмный фон */
+    border: 1px solid #2a2a2a; /* Границы */
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+    .table1 caption {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        color: #6c757d;
+        text-align: left;
+    }
+
+    .table1 thead th {
+        background-color: #258cfb; /* Цвет заголовка */
+        color: white;
+        padding: 12px 15px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border: 1px solid #2a2a2a;
+    }
+
+    .table1 tbody td {
+        padding: 12px 15px;
+        border: 1px solid #2a2a2a;
+    }
+
+    .table1 tbody tr:nth-child(even) {
+        background-color: #2a2a2a; /* Полосатый эффект */
+    }
+
+    .table1 tbody tr:hover {
+        background-color: #343a40; /* Цвет строки при наведении */
+        transition: background-color 0.3s ease;
+    }
+
+    .table1 tbody td:last-child {
+        text-align: center;
+    }
+
+    /* Кнопки в таблице */
+    .table1 .btn {
+        font-size: 0.875rem;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .table1 .btn-warning {
+        background-color: #ffc107;
+        color: #1e1e1e;
+        border: none;
+    }
+
+    .table1 .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+    }
+
+    .table1 .btn:hover {
+        opacity: 0.9;
+    }
+
+
 body {
     margin-bottom: 60px;
     background-color: #121212; /* Тёмный фон */
