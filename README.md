@@ -5,4 +5,5 @@
 ## NUGET и Логирование в Debug для DataGridView на WinForm
 ## UPD(21.11.2024): Seq + Unit Tests
 ## UPD(28.11.2024): ORM
+## UPD(05.11.2024): ASP.NET
 ## Вариант 1
